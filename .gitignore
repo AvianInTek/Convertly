@@ -1,3 +1,9 @@
 outputs
 temp_files
 uploads
+*.pyc
+*.pyo
+*.pyd
+__pycache__
+uploads
+outputs
