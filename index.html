@@ -39,6 +39,25 @@
             color: #cbd5e1;
         }
 
+        .status {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 1rem;
+            font-weight: 600;
+            color: #10b981;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.5;
+            }
+        }
+
         .card {
             background: #1e293b;
             padding: 2rem;
@@ -147,6 +166,7 @@
     <header>
         <h1>Convertly</h1>
         <p>Effortlessly convert your documents with style!</p>
+        <div class="status" id="status">Checking status...</div>
     </header>
 
     <div class="card">
@@ -175,6 +195,26 @@
     <script>
         const form = document.getElementById('convertForm');
         const loading = document.getElementById('loading');
+        const statusIndicator = document.getElementById('status');
+
+        async function checkStatus() {
+            try {
+                const response = await fetch('https://convertly-abtr.onrender.com/status');
+                if (response.ok) {
+                    const data = await response.json();
+                    statusIndicator.textContent = data.status === 'online' ? 'Live' : 'Offline';
+                    statusIndicator.style.color = data.status === 'online' ? '#10b981' : '#ef4444';
+                } else {
+                    statusIndicator.textContent = 'Offline';
+                    statusIndicator.style.color = '#ef4444';
+                }
+            } catch (error) {
+                statusIndicator.textContent = 'Offline';
+                statusIndicator.style.color = '#ef4444';
+            }
+        }
+
+        checkStatus();
 
         form.addEventListener('submit', async (e) => {
             e.preventDefault();
