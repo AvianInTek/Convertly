@@ -5,3 +5,5 @@ python-docx==0.8.11
 pdf2docx==0.5.6
 fpdf==1.7.2
 flask_cors
+opencv-python-headless
+
