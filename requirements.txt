@@ -1,6 +1,5 @@
-fastapi
-uvicorn
-python-multipart
-PyPDF2
-python-docx
-fpdf
+Flask==2.3.2
+Werkzeug==2.3.4
+python-docx==0.8.11
+pdf2docx==0.5.6
+fpdf==1.7.2
