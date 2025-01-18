@@ -5,9 +5,11 @@ from docx import Document
 from pdf2docx import Converter
 from fpdf import FPDF
 from flask_cors import CORS
+
 # Initialize Flask app
 app = Flask(__name__)
 CORS(app)
+
 # Set upload and output folder paths
 UPLOAD_FOLDER = "uploads"
 OUTPUT_FOLDER = "outputs"
