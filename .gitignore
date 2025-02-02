@@ -7,3 +7,5 @@ uploads
 __pycache__
 uploads
 outputs
+
+node_modules
