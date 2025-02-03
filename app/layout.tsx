@@ -4,7 +4,7 @@ import "./globals.css"
 import type React from "react"
 import { ThemeProvider } from "next-themes"
 import { ThemeToggle } from "./components/ThemeToggle"
-
+import { Analytics } from "@vercel/analytics/react"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata = {
